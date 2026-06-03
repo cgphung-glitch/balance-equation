@@ -587,7 +587,13 @@
       if (panel.classList.contains('visible')) renderProgress();
     });
     document.addEventListener('input', e => {
-      if (e.target.classList.contains('coeff')) updateSummary();
+      if (e.target.classList.contains('coeff')) {
+        updateSummary();
+        const panel = document.getElementById('countsPanel');
+        if (panel.classList.contains('visible')) {
+         renderProgress();
+        }
+      }
     });
 
     renderProblem(pickProblem('easy'));
