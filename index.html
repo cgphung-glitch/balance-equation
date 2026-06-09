@@ -576,8 +576,10 @@
       updateSummary();
     }
 
+    const levelSelect = document.getElementById('levelSelect');
+
     document.getElementById('newBtn').addEventListener('click', () => {
-      renderProblem(pickProblem(document.getElementById('levelSelect').value));
+      renderProblem(pickProblem(levelSelect.value));
     });
     document.getElementById('progressBtn').addEventListener('click', renderProgress);
     document.getElementById('checkBtn').addEventListener('click', checkBalanced);
@@ -594,6 +596,10 @@
          renderProgress();
         }
       }
+    });
+
+    levelSelect.addEventListener('change', () => {
+      renderProblem(pickProblem(levelSelect.value));
     });
 
     renderProblem(pickProblem('easy'));
